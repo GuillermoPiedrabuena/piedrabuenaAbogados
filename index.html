@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedrabuena Abogados</title>
+    <link rel="icon" type="image/x-icon" href="https://res.cloudinary.com/dv4ezxvt5/image/upload/v1756475919/1-54c8ac04_lsyb9c.ico">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        /* NAVBAR */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            width: 100%;
+        }
+
+        .logo-container a{
+            height: 60px;
+            display: flex;
+            align-items: center;
+           
+        }
+
+        .logo-container img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            padding-right: 5%;
+        }
+
+        nav a {
+            color: #671156;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: color 0.3s;
+            padding: 8px 0;
+        }
+
+        nav a:hover {
+            color: #58A0C8;
+        }
+
+        /* HERO */
+        .hero {
+            background-color: #f5f9fc;
+            color: #113F67;
+            text-align: center;
+            padding: 80px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #34699A;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #113F67;
+            color: white;
+            padding: 12px 25px;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #58A0C8;
+        }
+
+        /* SERVICES */
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px 20px;
+            background-color: white;
+        }
+
+        .service {
+            position: relative;
+            flex: 1 1 250px;
+            margin: 15px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #eaeaea;
+            text-align: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .service h3 {
+            color: #113F67;
+        }
+
+        /* TOOLTIP */
+        .tooltip {
+            visibility: hidden;
+            opacity: 0;
+            width: 220px;
+            background-color: #113F67;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 10px;
+            position: absolute;
+            z-index: 10;
+            bottom: 110%;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: opacity 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #113F67 transparent transparent transparent;
+        }
+
+        .service:hover .tooltip,
+        .service:active .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* ABOUT */
+        .about {
+            padding: 50px 20px;
+            background-color: #FDF5AA;
+            color: #113F67;
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 800px;
+            margin: auto;
+            font-size: 1.1rem;
+        }
+
+        .p-3 {
+            padding-left: 4rem !important;
+            padding-right: 4rem !important;
+
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .services {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav a {
+                margin-left: 10px;
+                font-size: 0.9rem;
+            }
+            nav{
+
+                padding-right: 0%;
+            }
+        }
+
+        /* Estilos generales del header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #003e8b;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* Contenedor del logo */
+        .logo-container {
+            height: 130px; /* Ajusta según el tamaño de tu logo */
+        }
+
+        .logo-container img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* Estilos de la navegación */
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+             color:white;
+            font-weight: bold;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #8b7355; /* Color corporativo si lo tienes */
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .logo-container {
+                height: 50px;
+                margin-bottom: 1rem;
+            }
+            
+            nav {
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="https://res.cloudinary.com/dv4ezxvt5/image/upload/v1755882304/logo_fflkih.png" alt="Piedrabuena Abogados">
+        </div>
+        <nav>
+            <a href="#nosotros">Sobre Nosotros</a>
+            <a href="#equipo">Nuestro Equipo</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+  <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Hero con Texto</title>
+    <style>
+        /* Estilos generales */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        /* Contenedor del video hero */
+        .video-hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        /* Estilos del video */
+        .video-hero video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 1;
+            object-fit: cover;
+        }
+        
+        /* Capa oscura para mejor legibilidad */
+        .video-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 2;
+        }
+        
+        /* Contenedor del texto */
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding: 0 20px;
+        }
+        
+        .hero-content h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+        }
+        video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cubre todo el espacio sin deformar */
+    object-position: center; /* Enfoca el centro del video */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.team {
+    padding: 5rem 1rem;
+    background-color: #f8f9fa;
+}
+
+.team-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    color: #003e8c;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #7f8c8d;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+}
+
+.team-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.team-card-header {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    padding: 1.5rem;
+    color: white;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    z-index: 1;
+}
+
+.team-name {
+    margin: 0;
+    font-size: 1.3rem;
+    line-height: 1.4;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.team-title {
+    margin: 0.3rem 0 0;
+    font-weight: 400;
+    font-size: 0.95rem;
+    opacity: 0.9;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+.team-education {
+    margin: 0.5rem 0 0;
+    font-size: 0.85rem;
+    opacity: 0.8;
+    font-style: italic;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+.team-card-body {
+    padding: 1.5rem;
+}
+
+.team-section-title {
+    color: #003e8c;
+    margin: 0 0 0.8rem;
+    font-size: 1.1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.team-skills {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+}
+
+.team-skills li {
+    padding: 0.25rem 0;
+    position: relative;
+    padding-left: 1.2rem;
+    font-size: 0.92rem;
+    line-height: 1.5;
+}
+
+.team-skills li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #3498db;
+    font-weight: bold;
+}
+
+.team-details {
+    margin-top: 1.2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.detail-item {
+    margin-bottom: 0.7rem;
+}
+
+.detail-item h5 {
+    margin: 0 0 0.2rem;
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    font-weight: 500;
+}
+
+.detail-item p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .team-card-header {
+        min-height: 180px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .team-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    }
+}
+
+.about {
+    padding: 4rem 0;
+    background-color: #f9f9f9;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: #003e8c;
+    font-size: 2.2rem;
+}
+
+.lead-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #34495e;
+    margin-bottom: 1.5rem;
+}
+
+.principles-grid, .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.principle-card, .value-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.principle-icon, .value-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.expertise-list {
+    list-style: none;
+    padding: 0;
+}
+
+.expertise-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.expertise-item .icon {
+    font-size: 1.5rem;
+    margin-top: 0.3rem;
+}
+
+.closing-text {
+    font-style: italic;
+    text-align: center;
+    margin-top: 2rem;
+    color: #003e8c;
+    font-weight: 500;
+}
+
+   .contact-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 40px;
+      background-color: #f9f9f9;
+    }
+    .map {
+      flex: 1;
+      min-width: 300px;
+      height: 400px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .contact-info {
+      flex: 1;
+      min-width: 280px;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    }
+    .contact-info h2 {
+      margin-top: 0;
+      color: #2a3d66;
+    }
+    .contact-info p {
+      margin: 10px 0;
+    }
+    .contact-info a {
+      color: #2a3d66;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+    </style>
+</head>
+<body>
+    <section class="video-hero" id="inicio">
+        <!-- Video de fondo (reemplaza con tu propio video) -->
+        <video autoplay muted loop playsinline>
+    <source src="https://res.cloudinary.com/dv4ezxvt5/video/upload/v1755045263/8440336-uhd_3840_2160_25fps_vibzxk.mp4" type="video/mp4">
+</video>
+        
+        <!-- Texto superpuesto -->
+       <div class="hero-content">
+    <h2>Actuamos con ética profesional y compromiso con los clientes.</h2>
+</div>
+    </section>
+</body>
+</html>
+
+
+    <section class="about" id="nosotros">
+    <div class="about-container">
+        <h2 class="section-title">Sobre Nosotros</h2>
+        <div class="about-content">
+            <div class="about-text">
+                 <div class="history-section">
+                    <p class="lead-text">
+                        Somos un estudio jurídico fundado en la década de los 80 por don Guillermo Piedrabuena Richard, ex Presidente del Consejo de Defensa del Estado y ex Primer Fiscal Nacional del Ministerio Público, el que se ha mantenido en el tiempo a través de sus descendientes abogados.
+                    </p>
+                    <br />
+                    <p class="lead-text">
+                        
+                        La ética profesional, el compromiso permanente con nuestros clientes y la atención personalizada de los asuntos encomendados son los principios básicos bajo los cuales prestamos nuestra asesoría jurídica.
+                    </p>
+                    <br />
+                    <p class="lead-text">
+
+                        Somos un equipo consolidado de abogados especializados en derecho civil, comercial, societario, inmobiliario, tributario, laboral, de familia e informático.
+                    </p>
+                    <br />
+                    <p class="lead-text">
+                        Aunque nuestra oficina se ubica en Santiago, mantenemos relaciones colaborativas con otros estudios del país, sin perjuicio que vamos donde nos requiera el cliente
+                    </p>
+                    <br />
+                    <br />
+
+                    </div>
+                
+                <div class="principles-section">
+                    <h3 class="principles-title">Nuestros Principios</h3>
+                    <div class="principles-grid">
+                        <div class="principle-card">
+                            <span class="principle-icon">⚖️</span>
+                            <h4>Ética Profesional</h4>
+                            <p>Fundamento esencial de nuestra práctica</p>
+                        </div>
+                        <div class="principle-card">
+                            <span class="principle-icon">🤝</span>
+                            <h4>Compromiso</h4>
+                            <p>Relaciones a largo plazo con nuestros clientes</p>
+                        </div>
+                        <div class="principle-card">
+                            <span class="principle-icon">👔</span>
+                            <h4>Atención Personalizada</h4>
+                            <p>Enfoque dedicado a cada caso</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+ <section class="team" id="equipo">
+        <div class="team-container">
+            <h2 class="section-title">Nuestro Equipo</h2>
+            <p class="section-subtitle">Profesionales multidisciplinarios comprometidos con la excelencia jurídica y asesoría integral</p>
+            
+            <div class="team-grid">
+                
+                <!-- Miembro 1 - Guillermo Piedrabuena Keymer -->
+                <div class="team-card">
+                    <div class="team-card-header" 
+                    style=" 
+                        height: 250px; 
+                        background-image: url('https://res.cloudinary.com/dv4ezxvt5/image/upload/v1755877936/papa_ntwuuv.jpg');
+                        background-size: cover; 
+                        background-position: center; 
+                        background-repeat: no-repeat;
+                        background-color: #003e8c;
+                        position: relative;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-end;
+                        padding: 20px;
+                        color: white;
+                    ">
+                        <h3 class="team-name">Guillermo Piedrabuena Keymer</h3>
+                        <p class="team-education">Universidad Católica de Chile (1987)</p>
+                    </div>
+                    
+                    <div class="team-card-body">
+                        <div class="team-experience">
+                            <h4 class="team-section-title">Áreas de especialización</h4>
+                            <ul class="team-skills">
+                                <li>Derecho hereditario y sucesorio</li>
+                                <li>Derecho societario y comercial</li>
+                                <li>Litigios en derecho de contratos y bancario</li>
+                                <li>Arbitrajes</li>
+                                <li>Insolvencia y liquidación de empresas</li>
+                                <li>Asesorías a compañías familiares y consultoras medio ambientales</li>
+                                <li>Constitución de Fundaciones y Corporaciones sin fines de lucro</li>
+                                <li>Organización de Comunidades regidas por la Ley de Copropiedad Horizontal</li>
+                                <li>Representación judicial de sociedades de Factoring</li>
+                                <li>Integración de Tribunales de Ética en el ámbito gremial y deportivo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Miembro 2 - Verónica Piedrabuena Keymer -->
+                <div class="team-card">
+                    <div class="team-card-header" 
+                    
+                    style=" 
+                        height: 250px; 
+                        background-image: url('https://res.cloudinary.com/dv4ezxvt5/image/upload/v1756474446/vero_f0eiph.jpg');
+                        background-size: cover; 
+                        background-position: center; 
+                        background-repeat: no-repeat;
+                        background-color: #003e8c;
+                        position: relative;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-end;
+                        padding: 20px;
+                        color: white;
+                    ">
+                    >
+                        <h3 class="team-name">Verónica Piedrabuena Keymer</h3>
+                        <p class="team-education">Universidad Católica de Chile (2004). Magíster en Políticas Públicas UC</p>
+                    </div>
+                    
+                    <div class="team-card-body">
+                        <div class="team-experience">
+                            <h4 class="team-section-title">Áreas de especialización</h4>
+                            <ul class="team-skills">
+                                <li>Asesorías en contratos de construcción y derecho inmobiliario (sector público y privado)</li>
+                                <li>Estudios de títulos de dominio</li>
+                                <li>Derecho concursal</li>
+                                <li>Recursos contra ISAPRES</li>
+                                <li>Mediación en conflictos en el ámbito de la Salud</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Miembro 3 - Edgardo Ramos -->
+                <div class="team-card">
+                    <div class="team-card-header" style=" 
+                height: 250px; 
+                background-image: url('https://res.cloudinary.com/dv4ezxvt5/image/upload/v1756251454/ChatGPT_Image_Aug_26_2025_07_36_48_PM_vkrrk5.png'); 
+                background-size: cover; 
+                background-position: center; 
+                background-repeat: no-repeat;
+                background-color: #003e8c;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                padding: 20px;
+                color: white;
+            ">
+                        <h3 class="team-name">Edgardo Ramos</h3>
+                        <p class="team-education">
+                            Abogado e Ingeniero Comercial<br>
+                            Universidad Santo Tomás (2022). Contador-Auditor
+                        </p>
+                    </div>
+                    
+                    <div class="team-card-body">
+                        <div class="team-experience">
+                            <h4 class="team-section-title">Áreas de especialización</h4>
+                            <ul class="team-skills">
+                                <li>Asesoría de empresas y planificación tributaria</li>
+                                <li>Auditoría contable</li>
+                                <li>Derecho civil corporativo y societario</li>
+                                <li>Derecho sucesorio y registral</li>
+                                <li>Derecho de contratos y administrativo</li>
+                                <li>Derecho tributario, laboral y de familia</li>
+                                <li>Defensa de instituciones públicas y privadas</li>
+                                <li>Magíster en Tributación. Diplomado en Gestión y Formación Empresarial</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Miembro 4 - Guillermo Nicolás Piedrabuena Parrochia -->
+                <div class="team-card">
+                    <div class="team-card-header"
+                    style=" 
+                height: 250px; 
+                background-image: url('https://res.cloudinary.com/dv4ezxvt5/image/upload/v1755877284/ChatGPT_Image_Aug_20_2025_09_46_13_AM_oh7ikz.jpg'); 
+                background-size: cover; 
+                background-position: center; 
+                background-repeat: no-repeat;
+                background-color: #003e8c;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                padding: 20px;
+                color: white;
+            "
+>
+            
+                        <h3 class="team-name">Guillermo Nicolás Piedrabuena Parrochia</h3>
+                        <p class="team-education">Universidad de los Andes (2015)</p>
+                    </div>
+                    
+                    <div class="team-card-body">
+                        <div class="team-experience">
+                            <h4 class="team-section-title">Áreas de especialización</h4>
+                            <ul class="team-skills">
+                                <li>Derecho de familia</li>
+                                <li>Litigación civil</li>
+                                <li>Derecho tributario</li>
+                                <li>Magíster en Dirección Tributaria (UAI)</li>
+                                <li>Desarrollador Web</li>
+                                <li>Cientista de Datos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Miembro 5 - Isabella Godoy Baltz -->
+                <div class="team-card">
+                    <div class="team-card-header" 
+                     style=" 
+                height: 250px;
+                background-image: url(' https://res.cloudinary.com/dv4ezxvt5/image/upload/v1756593311/ChatGPT_Image_Aug_30_2025_06_34_59_PM_fje6ak.png'); 
+                background-size: cover; 
+                background-position: center; 
+                background-repeat: no-repeat;
+                background-color: #003e8c;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                padding: 20px;
+                color: white;
+            ">
+                        <h3 class="team-name">Isabella Godoy Baltz</h3>
+                        <p class="team-education">Ingeniero Comercial, Universidad Adolfo Ibáñez (1983)</p>
+                    </div>
+                    
+                    <div class="team-card-body">
+                        <div class="team-experience">
+                            <h4 class="team-section-title">Áreas de especialización</h4>
+                            <ul class="team-skills">
+                                <li>Ámbito laboral y negociación</li>
+                                <li>Adquisiciones, administración y capital humano</li>
+                                <li>Optimización de procesos y reestructuración de áreas</li>
+                                <li>Reducción de gastos e implementación de procedimientos</li>
+                                <li>Formación de equipos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <section class="contact-section" id="contacto">
+    <!-- Mapa -->
+    <div class="map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.370362425229!2d-70.65522782388365!3d-33.43965617339384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5a43dff7a99%3A0x3400bf1b424a8cc0!2sHu%C3%A9rfanos%201117%2C%208340369%20Santiago%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1sen!2scl!4v1755875555941!5m2!1sen!2scl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <!-- Información de contacto -->
+    <div class="contact-info">
+      <h2>Contacto</h2>
+      <p><strong>Piedrabuena Abogados</strong></p>
+      <p>📍 Paseo Huérfanos 1117, oficina 635 (piso 6), Metro U. de Chile</p>
+      <p>📞 <a href="tel:+34123456789">+569 3050 9306</a></p>
+      <p>✉️ <a href="mailto:info@abogadosxyz.com">gnpiedrabuena@piedrabuena.cl</a></p>
+      <p>🕒 Lunes - Viernes: 9:00 - 17:00</p>
+    </div>
+  </section>
+
+    <script>
+    function initMap() {
+      // Coordenadas de la oficina (ejemplo: Madrid, España)
+      var officeLocation = { lat: 40.416775, lng: -3.703790 };
+
+      // Crear el mapa
+      var map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 15,
+        center: officeLocation
+      });
+
+      // Marcador
+      var marker = new google.maps.Marker({
+        position: officeLocation,
+        map: map,
+        title: "Piedrabuena Abogados"
+      });
+    }
+  </script>
+  <script async 
+    src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap">
+  </script>
+
+
+<a href="https://wa.me/56995332306?text=buenas tardes, hablo con Piedrabuena Abogados?."
+   target="_blank"
+   rel="noopener"
+   aria-label="Contactar por WhatsApp"
+   style="
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 56px;
+      height: 56px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      text-decoration: none;
+      z-index: 9999;
+   ">
+   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+        <path fill="#25D366" d="M188.1 318.6C188.1 343.5 195.1 367.8 208.3 388.7L211.4 393.7L198.1 442.3L248 429.2L252.8 432.1C273 444.1 296.2 450.5 319.9 450.5L320 450.5C392.6 450.5 453.3 391.4 453.3 318.7C453.3 283.5 438.1 250.4 413.2 225.5C388.2 200.5 355.2 186.8 320 186.8C247.3 186.8 188.2 245.9 188.1 318.6zM370.8 394C358.2 395.9 348.4 394.9 323.3 384.1C286.5 368.2 261.5 332.6 256.4 325.4C256 324.8 255.7 324.5 255.6 324.3C253.6 321.7 239.4 302.8 239.4 283.3C239.4 264.9 248.4 255.4 252.6 251C252.9 250.7 253.1 250.5 253.3 250.2C256.9 246.2 261.2 245.2 263.9 245.2C266.5 245.2 269.2 245.2 271.5 245.3L272.3 245.3C274.6 245.3 277.5 245.3 280.4 252.1C281.6 255 283.4 259.4 285.3 263.9C288.6 271.9 292 280.2 292.6 281.5C293.6 283.5 294.3 285.8 292.9 288.4C289.5 295.2 286 298.8 283.6 301.4C280.5 304.6 279.1 306.1 281.3 310C296.6 336.3 311.9 345.4 335.2 357.1C339.2 359.1 341.5 358.8 343.8 356.1C346.1 353.5 353.7 344.5 356.3 340.6C358.9 336.6 361.6 337.3 365.2 338.6C368.8 339.9 388.3 349.5 392.3 351.5C393.1 351.9 393.8 352.2 394.4 352.5C397.2 353.9 399.1 354.8 399.9 356.1C400.8 358 400.8 366 397.5 375.2C394.2 384.5 378.4 392.9 370.8 394zM544 160C544 124.7 515.3 96 480 96L160 96C124.7 96 96 124.7 96 160L96 480C96 515.3 124.7 544 160 544L480 544C515.3 544 544 515.3 544 480L544 160zM244.1 457.9L160 480L182.5 397.8C168.6 373.8 161.3 346.5 161.3 318.5C161.4 231.1 232.5 160 319.9 160C362.3 160 402.1 176.5 432.1 206.5C462 236.5 480 276.3 480 318.7C480 406.1 407.3 477.2 319.9 477.2C293.3 477.2 267.2 470.5 244.1 457.9z"/></svg>
+</a>
+
+<style>
+
+    .team {
+    padding: 5rem 1rem;
+    background-color: #f8f9fa;
+}
+
+.team-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    color: #003e8c;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #003e8c;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.team-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.team-card-header {
+    background: #003e8c;
+    color: white;
+    padding: 1.5rem;
+}
+
+.team-name {
+    margin: 0;
+    font-size: 1.3rem;
+    line-height: 1.4;
+}
+
+.team-title {
+    margin: 0.3rem 0 0;
+    font-weight: 400;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.team-education {
+    margin: 0.5rem 0 0;
+    font-size: 0.85rem;
+    opacity: 0.8;
+    font-style: italic;
+}
+
+.team-card-body {
+    padding: 1.5rem;
+}
+
+.team-section-title {
+    color: #003e8c;
+    margin: 0 0 0.8rem;
+    font-size: 1.1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.team-skills {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+}
+
+.team-skills li {
+    padding: 0.25rem 0;
+    position: relative;
+    padding-left: 1.2rem;
+    font-size: 0.92rem;
+    line-height: 1.5;
+}
+
+.team-skills li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #3498db;
+    font-weight: bold;
+}
+
+.team-details {
+    margin-top: 1.2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.detail-item {
+    margin-bottom: 0.7rem;
+}
+
+.detail-item h5 {
+    margin: 0 0 0.2rem;
+    font-size: 0.85rem;
+    color: #7f8c8d;
+    font-weight: 500;
+}
+
+.detail-item p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 1600px) {
+    .team-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    }
+}
+.about {
+    background: #f8f9fa;
+    padding: 5rem 2rem;
+    font-family: 'Georgia', serif;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #003e8c;
+    margin-bottom: 3rem;
+    position: relative;
+    font-weight: 600;
+}
+
+.section-title:after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #1a4b8c;
+    margin: 15px auto;
+}
+
+.lead-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #555;
+    text-align: justify;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.expertise-section {
+    margin: 3rem 0;
+}
+
+.expertise-title {
+    font-size: 1.5rem;
+    color: #003e8c;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+.expertise-list {
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.expertise-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 6px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.expertise-item:hover {
+    transform: translateY(-3px);
+}
+
+.expertise-item .icon {
+    font-size: 1.8rem;
+    margin-right: 1.5rem;
+    color: #1a4b8c;
+    min-width: 40px;
+    text-align: center;
+}
+
+.values-section {
+    margin: 4rem 0;
+}
+
+.values-title {
+    font-size: 1.5rem;
+    color: #003e8c;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.value-card {
+    background: white;
+    padding: 1.8rem 1.5rem;
+    text-align: center;
+    border-radius: 6px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.value-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 1rem;
+    color: #1a4b8c;
+}
+
+.value-card h4 {
+    color: #003e8c;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.value-card p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.closing-text {
+    font-size: 1.2rem;
+    text-align: center;
+    color: #003e8c;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e0e0e0;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    font-style: italic;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .expertise-item {
+        padding: 1.2rem;
+    }
+    
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+</body>
+</html>
